@@ -43,6 +43,8 @@ public class DispatchWorkItem {
 #if os(Windows)
 #if arch(arm64) || arch(x86_64)
 		let flags = dispatch_block_flags_t(UInt32(flags.rawValue))
+#elseif os(Windows) && (arch(arm) || arch(i386))
+		let flags = dispatch_block_flags_t(UInt(flags.rawValue))
 #else
 		let flags = dispatch_block_flags_t(UInt(flags.rawValue))
 #endif
@@ -59,6 +61,8 @@ public class DispatchWorkItem {
 #if os(Windows)
 #if arch(arm64) || arch(x86_64)
 		let flags = dispatch_block_flags_t(UInt32(flags.rawValue))
+#elseif os(Windows) && (arch(arm) || arch(i386))
+		let flags = dispatch_block_flags_t(UInt(flags.rawValue))
 #else
 		let flags = dispatch_block_flags_t(UInt(flags.rawValue))
 #endif
