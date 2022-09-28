@@ -195,6 +195,9 @@ _dispatch_workq_init_wct(void *hWCTSession)
 static void
 _dispatch_workq_count_runnable_workers(dispatch_workq_monitor_t mon)
 {
+#ifndef WCT_MAX_NODE_COUNT
+#define WCT_MAX_NODE_COUNT 16
+#endif
 	static dispatch_once_t _wct_init_pred;
 	static HWCT hWCTSession;
 	static WAITCHAIN_NODE_INFO wait_chain[WCT_MAX_NODE_COUNT];
